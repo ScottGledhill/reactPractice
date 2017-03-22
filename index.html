@@ -11,6 +11,11 @@
   <div id="app"></div>
   <script type="text/babel">
   var NameStateComponent = React.createClass({
+    resetName: function() {
+      this.setState({
+        name: ''
+      })
+    },
     nameChanged: function(event) {
       this.setState({
         name: event.target.value
@@ -27,6 +32,7 @@
         <div>
           <input type='text' onChange={this.nameChanged}/>
           <h1>Hello my name is {this.state.name}</h1>
+          <button onClick={this.resetName}>Reset name</button>
         </div>
       )
     }
