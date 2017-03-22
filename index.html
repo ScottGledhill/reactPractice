@@ -10,36 +10,41 @@
 <body>
   <div id="app"></div>
   <script type="text/babel">
-  var NameStateComponent = React.createClass({
-    resetName: function() {
-      this.setState({
-        name: ''
-      })
-    },
-    nameChanged: function(event) {
-      this.setState({
-        name: event.target.value
-      })
-    },
-    getInitialState: function(){
+  var CounterChallenge = React.createClass({
+    getInitialState: function() {
       return {
-        name: ''
+        count: 0
       }
     },
-
-    render: function(){
+    incrementCountByOne: function() {
+      this.setState({
+        count: this.state.count + 1
+      })
+    },
+    incrementCountByFive: function() {
+      this.setState({
+        count: this.state.count + 5
+      })
+    },
+    incrementCountByTen: function() {
+      this.setState({
+        count: this.state.count + 10
+      })
+    },
+    render: function() {
       return (
-        <div>
-          <input type='text' onChange={this.nameChanged}/>
-          <h1>Hello my name is {this.state.name}</h1>
-          <button onClick={this.resetName}>Reset name</button>
+        <div className="container">
+          <h1> Count: {this.state.count}</h1>
+          <button onClick={this.incrementCountByOne} className="btn blue-btn">Add 1</button>
+          <button onClick={this.incrementCountByFive}>Add 5</button>
+          <button onClick={this.incrementCountByTen}>Add 10</button>
         </div>
       )
     }
   });
 
     ReactDOM.render(
-      <NameStateComponent/>,
+      <CounterChallenge/>,
       document.getElementById('app')
     );
   </script>
