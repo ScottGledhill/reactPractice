@@ -10,17 +10,17 @@
 <body>
   <div id="app"></div>
   <script type="text/babel">
-
-   ReactDOM.render(
-  //    React.createElement(
-  //      'h1',
-  //      null,
-  //      'Hello World!'
-  //    ),
-  //    document.getElementById('app')
-  // );
+    var FirstComponent = React.createClass({
+      render: function() {
+        return (
+          <h1>This is our first component</h1>
+        )
+      }
+    });
+    ReactDOM.render(
+      <FirstComponent/>,
+      document.getElementById('app')
+    );
   </script>
-  </div>
-  </div>
 </body>
 </html>
