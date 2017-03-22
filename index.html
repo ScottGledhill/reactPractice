@@ -15,6 +15,11 @@
         name: React.PropTypes.string.isRequired,
         location: React.PropTypes.string.isRequired
       },
+      getDefaultProps: function() {
+        return {
+          name: 'Peter'
+        }
+      },
       render: function() {
         let name = this.props.name;
         let location = this.props.location;
