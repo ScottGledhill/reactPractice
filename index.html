@@ -25,6 +25,14 @@
         count: 0
       })
     },
+    // 3 called once
+    // before component rendered
+    componentWillMount: function() {
+      console.log(this.state)
+      console.log(this.props)
+      console.log("component is mounting")
+    },
+
     increment: function(){
       this.setState({
         count: this.state.count + 1
@@ -32,7 +40,7 @@
     },
     render: function(){
       return (
-        <button onCLick={this.increment}>{this.state.count}</button>
+        <button onClick={this.increment}>{this.state.count}</button>
       )
     }
   });
