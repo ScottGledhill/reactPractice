@@ -11,9 +11,15 @@
   <div id="app"></div>
   <script type="text/babel">
   var LifeCycleComponent = React.createClass({
+
+    increment: function(){
+      this.setState({
+        count: this.state.count + 1
+      })
+    },
+
     // 1 called once
     //before component is rendered
-
     getDefaultProps: function(){
       console.log('getting out default properties');
     },
@@ -33,12 +39,10 @@
       console.log("component is mounting")
     },
 
-    increment: function(){
-      this.setState({
-        count: this.state.count + 1
-      })
-    },
+    // 4
+    // happens whenever our component changes
     render: function(){
+      console.log("component is rendered")
       return (
         <button onClick={this.increment}>{this.state.count}</button>
       )
