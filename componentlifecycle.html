@@ -10,7 +10,7 @@
 <body>
   <div id="app"></div>
   <script type="text/babel">
-  var LifecycleComponent = React.createClass({
+  var LifeCycleComponent = React.createClass({
 
     increment: function(){
       this.setState({
@@ -21,7 +21,7 @@
     // 1 called once
     //before component is rendered
     getDefaultProps: function(){
-      console.log('getting our default properties');
+      console.log('getting out default properties');
     },
     // 2 called once
     // before component rendered
@@ -49,43 +49,11 @@
   // after component has rendered
     componentDidMount: function(){
       console.log("Component has rendered")
-      this.interval = setInterval(this.increment, 1000);
-    },
-
-    // 6 only once
-    // after component has rendered
-    componentWillUnmount: function() {
-      clearInterval(this.interval)
-      console.log('component unmounted!')
     }
   });
 
-    var LifecycleContainer = React.createClass({
-      mount: function() {
-        ReactDOM.render(
-          <LifecycleComponent/>,
-          document.getElementById('renderHere')
-        );
-      },
-
-      unmount: function(){
-        ReactDOM.unmountComponentAtNode(document.getElementById('renderHere'));
-      },
-
-      render: function() {
-        console.log("LifecycleContainer rendered")
-        return (
-          <div>
-            <button onClick={this.mount}>Mount</button>
-            <button onClick={this.unmount}>Unmount</button>
-            <div id="renderHere"></div>
-          </div>
-        )
-      }
-    });
-
     ReactDOM.render(
-      <LifecycleContainer/>,
+      <LifeCycleComponent/>,
       document.getElementById('app')
     );
   </script>
