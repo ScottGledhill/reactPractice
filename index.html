@@ -10,36 +10,16 @@
 <body>
   <div id="app"></div>
   <script type="text/babel">
-    var TaskList = React.createClass({
-      getInitialState: function() {
-        return {
-          tasks: [
-            {title: 'Clean dishes', id: 1},
-            {title: 'Take out the bins', id: 2},
-            {title: 'Change bedding', id: 3}
-          ]
-        }
-      },
-
-      render: function() {
-        return (
-          <ul>
-            {this.state.tasks.map(function(task) {
-              return <Task title={task.title} key={task.id}/>
-            })}
-          </ul>
-        )
-      }
-    });
-
-    var Task = function(props) {
+  var LifeCycleComponent = React.createClass({
+    render: function(){
       return (
-        <li>Task: {props.title}</li>
+        <button onCLick{this.increment}>{this.state.count}</button>
       )
-    };
+    }
+  })
 
     ReactDOM.render(
-      <TaskList/>,
+      <LifeCycleComponent/>,
       document.getElementById('app')
     );
   </script>
