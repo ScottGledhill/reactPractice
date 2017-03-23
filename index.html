@@ -11,12 +11,31 @@
   <div id="app"></div>
   <script type="text/babel">
   var LifeCycleComponent = React.createClass({
+    // 1 called once
+    //before component is rendered
+
+    getDefaultProps: function(){
+      console.log('getting out default properties');
+    },
+    // 2 called once
+    // before component rendered
+    getInitialState: function(){
+      console.log("getting initial state");
+      return({
+        count: 0
+      })
+    },
+    increment: function(){
+      this.setState({
+        count: this.state.count + 1
+      })
+    },
     render: function(){
       return (
-        <button onCLick{this.increment}>{this.state.count}</button>
+        <button onCLick={this.increment}>{this.state.count}</button>
       )
     }
-  })
+  });
 
     ReactDOM.render(
       <LifeCycleComponent/>,
