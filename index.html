@@ -34,8 +34,6 @@
     // 3 called once
     // before component rendered
     componentWillMount: function() {
-      console.log(this.state)
-      console.log(this.props)
       console.log("component is mounting")
     },
 
@@ -46,6 +44,14 @@
       return (
         <button onClick={this.increment}>{this.state.count}</button>
       )
+    },
+  // 5 only once
+  // after component has rendered
+    componentDidMount: function(){
+      console.log("Component has rendered")
+      console.log(this.state);
+      console.log(this.props);
+      console.log(ReactDOM.findDOMNode(this));
     }
   });
 
