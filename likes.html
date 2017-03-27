@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lesson8styling.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+    var likesComponent = React.createClass({
+      getDefaultProps: function() {
+        return({
+          likes:0
+        })
+      },
+      render: function() {
+        return (
+          <div className="container">
+          <h1>{this.state.popular ? "I'm popular" : null }</h1>
+          <button className="btn blue-btn" onClick={this.updateLikes}>Likes: {this.props.likes}</button>
+          </div>
+        )
+      }
+    });
+    ReactDOM.render(
+      <LikesComponent/>,
+      document.getElementById("app")
+    )
+    </script>
+  </body>
+</html>
